@@ -1,12 +1,9 @@
 import type { Vec2 } from 'tscratch';
-import alien from '@/characters/alien.ts';
+import ufo from '@/characters/ufo.ts';
 
-type CharacterData = Record<string, {
-    vertices: Vec2[];
-    edges: Vec2[];
-}>;
+type CharacterData = Record<string, Vec2[]>;
 
-const characters = { alien } as const satisfies CharacterData;
+const characters = { ufo } as const satisfies CharacterData;
 
 export type Character = keyof typeof characters;
 export default characters;

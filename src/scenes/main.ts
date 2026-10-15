@@ -7,9 +7,12 @@ const scene = scenes.main;
 const title = new Text({
     scene,
     content: 'ALIENS',
-    y: 75,
-    fontSize: 28,
-    fontFamily: fonts.awesome
+    y: 60,
+    fontSize: 54,
+    fontFamily: fonts.awesome,
+    color: 'black',
+    outlineWidth: 2,
+    outlineColor: 'white'
 });
 const singleplayer = new Button({
     scene,
@@ -17,16 +20,11 @@ const singleplayer = new Button({
     width: 100,
     x: -75,
     y: -50,
-    fontSize: 12
+    fontSize: 12,
+    buttonOutlineWidth: 1,
+    borderRadius: 5
 });
-const multiplayer = new Button({
-    scene,
-    content: 'Multiplayer',
-    width: 100,
-    x: 75,
-    y: -50,
-    fontSize: 12
-});
+const multiplayer = singleplayer.clone({ x: -singleplayer.x, content: 'Multiplayer' });
 
 const engine = Engine.init();
 let timeSP = 0;
@@ -35,6 +33,12 @@ let timeMP = 0;
 export default () => {
 
     const dt = engine.getDeltaTime() * 180;
+
+    // Button cursor
+    if (engine.hovering(singleplayer) || engine.hovering(multiplayer))
+        engine.setCursor('pointer');
+    else
+        engine.setCursor('default');
 
     // Button hover animations
     if (engine.hovering(singleplayer)) {
@@ -58,7 +62,7 @@ export default () => {
     }
 
     // Title animation
-    title.setY(75 + 8 * TSCMath.sin((performance.now() / 10) % 360));
+    title.setY(60 + 8 * TSCMath.sin((performance.now() / 10) % 360));
     title.point(3 * TSCMath.cos((performance.now() / 10) % 360));
 };
 

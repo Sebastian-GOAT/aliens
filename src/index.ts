@@ -1,10 +1,12 @@
 import './global/preload.ts';
 
-import { Engine } from 'tscratch';
+import { Engine, setBackground } from 'tscratch';
 import './global/watermark.ts';
 import scenes from './global/scenes.ts';
 import mainScene from './scenes/main.ts';
 import gameSingleplayerScene from './scenes/game-singleplayer.ts';
+
+setBackground('#a322c4');
 
 const engine = Engine.init();
 engine.setMaxFPS(60);
