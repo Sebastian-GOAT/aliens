@@ -4,5 +4,5 @@ export interface PlayerState {
     angle: number;
     dir: 1 | -1;
     color: string;
-    character: Character
+    character: Character;
 }

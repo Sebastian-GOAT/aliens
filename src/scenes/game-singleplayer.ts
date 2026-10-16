@@ -53,7 +53,6 @@ function switchDirection() {
 }
 
 export default () => {
-
     const dt = engine.getDeltaTime();
 
     // Player movement
@@ -62,5 +61,4 @@ export default () => {
     player.move(outline.radius);
 
     // Alien movement
-    
 };

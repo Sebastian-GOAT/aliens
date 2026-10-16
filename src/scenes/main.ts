@@ -31,14 +31,11 @@ let timeSP = 0;
 let timeMP = 0;
 
 export default () => {
-
     const dt = engine.getDeltaTime() * 180;
 
     // Button cursor
-    if (engine.hovering(singleplayer) || engine.hovering(multiplayer))
-        engine.setCursor('pointer');
-    else
-        engine.setCursor('default');
+    if (engine.hovering(singleplayer) || engine.hovering(multiplayer)) engine.setCursor('pointer');
+    else engine.setCursor('default');
 
     // Button hover animations
     if (engine.hovering(singleplayer)) {
@@ -67,10 +64,16 @@ export default () => {
 };
 
 // Button click events
-singleplayer.onPress(() => {
-    engine.setScene(scenes.game_singleplayer);
-}, { allowHold: false });
+singleplayer.onPress(
+    () => {
+        engine.setScene(scenes.game_singleplayer);
+    },
+    { allowHold: false }
+);
 
-multiplayer.onPress(() => {
-    engine.setScene(scenes.rooms);
-}, { allowHold: false });
+multiplayer.onPress(
+    () => {
+        engine.setScene(scenes.rooms);
+    },
+    { allowHold: false }
+);
