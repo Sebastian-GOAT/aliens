@@ -11,7 +11,7 @@ const title = new Text({
     fontSize: 54,
     fontFamily: fonts.awesome,
     color: 'black',
-    outlineWidth: 2,
+    outlineWidth: 1,
     outlineColor: 'white'
 });
 const singleplayer = new Button({
